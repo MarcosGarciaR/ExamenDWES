@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videojuegos</title>
+</head>
+<body>
+    <ul>
+    {% for videojuego in lista_videojuegos %}
+
+        <li>
+        <h2>Titulo: {{ videojuego.titulo }}</h2>
+        <h3>Estudio: {{videojuego.estudio_desarrollo.nombre }}</h3>
+        <h4>Plataforma: {{ videojuego.plataforma.nombre }}</h4>
+        <p>Ventas estimadas: {{videojuego.ventas_estimadas }}</p>
+
+        </li>
+    {% empty %}
+        <p>No hay videojuegos que cumplan estas características</p>
+    {% endfor %}
+    </ul>
+</body>
+</html>
