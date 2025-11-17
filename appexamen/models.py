@@ -4,7 +4,7 @@ from django.utils import timezone
 from django.core.validators import MinValueValidator, MaxValueValidator
 
 
-
+"""
 # ESTUDIO
 class Estudio(models.Model):
     nombre = models.CharField(max_length=100)
@@ -43,3 +43,5 @@ class Videojuego(models.Model):
 class Analisis(models.Model):
     videojuego = models.ForeignKey(Videojuego, on_delete=models.CASCADE, related_name='analisisDeVideojuego')
     puntuacion = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(100)])
+    
+"""
