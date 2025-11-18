@@ -7,7 +7,7 @@ from django.views.defaults import page_not_found
 # Create your views here.
 
 def index(request):
-    return render(request, 'index.h AV tml')
+    return render(request, 'index.html')
 
 
 def ejercicio1(request, nombre, refugio):
@@ -30,7 +30,12 @@ def ejercicio2(request, valor):
                 )
     return render(request, 'URLs/ejercicio2.html', {'datos':datos })
 
-
+def ejercicio3(request):
+    datos = (Animal.objects.
+                prefetch_related('animal_vacunas').
+                filter(vacunas__id=None)
+                .all().order_by('edad_estimada').reverse())
+    return render(request, 'URLs/ejercicio1.html', {'datos':datos})
 
 
 #   PÁGINAS DE ERRORES
