@@ -4,42 +4,56 @@ from django.utils import timezone
 from django.core.validators import MinValueValidator, MaxValueValidator
 
 
-
-# ESTUDIO
-class Estudio(models.Model):
+class Refugio(models.Model):
     nombre = models.CharField(max_length=100)
 
-# PLATAFORMA
-class Plataforma(models.Model):
-    OPCIONES_FAB = [
-        ('sony', 'Sony'),
-        ('ea', 'Electronic Arts')
-    ]
-    OPCIONES_NOM = [
-        ('play','Play Station'),
-        ('xbox','Xbox')
-    ]
-    nombre = models.CharField(max_length=100, choices=OPCIONES_NOM)
-    fabricante = models.CharField(max_length=100, choices=OPCIONES_FAB)
+class Centro(models.Model):
+    nombre = models.CharField(max_length=100)
+    refugio = models.ForeignKey(Refugio, on_delete=models.CASCADE, related_name='centros')
 
-# SEDE
-class Sede(models.Model):
-    OPCIONES_PAIS = [
-        ('SP', 'España'),
-        ('EEUU', 'Estados Unidos')
-    ]
-    estudio = models.OneToOneField(Estudio, on_delete=models.CASCADE, related_name="estudio_sede")
-    pais = models.CharField(max_length= 50, choices=OPCIONES_PAIS)
+class Vacuna(models.Model):
+    nombre = models.CharField(max_length=100)
+    fabricante = models.CharField(max_length=100)
 
+class Animal(models.Model):
+    nombre = models.CharField(max_length=100)
+    centro = models.ForeignKey(Centro, on_delete=models.CASCADE, related_name='animales')
+    edad_estimada = models.IntegerField(null=True, blank=True)
+    vacunas = models.ManyToManyField(Vacuna, related_name="animal_vacunas")
 
-# VIDEOJUEGO
-class Videojuego(models.Model):
-    titulo = models.CharField(max_length=150)
-    ventas_estimadas = models.IntegerField(validators=[MinValueValidator(1)])
-    estudio_desarrollo = models.ForeignKey(Estudio, on_delete=models.PROTECT)
-    plataforma = models.ManyToManyField(Plataforma, related_name="videojuego_plataformas")
+class Revision_Veterinaria(models.Model):
+    animal = models.ForeignKey(Animal, on_delete=models.CASCADE, related_name='revisiones')
+    puntuacion_salud = models.IntegerField()
+    fecha = models.DateField()
+    veterinario = models.CharField(max_length=150)
+    
 
-# ANALISIS
-class Analisis(models.Model):
-    videojuego = models.ForeignKey(Videojuego, on_delete=models.CASCADE, related_name='analisisDeVideojuego')
-    puntuacion = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(100)])
+"""
+SELECT
+    A.*, C.*, AV.*
+FROM
+    animal A
+INNER JOIN
+    centro C ON A.centro_id = C.id
+INNER JOIN
+    refugio R ON C.refugio_id = R.id
+LEFT JOIN
+    animal_vacunas AV ON A.id = AV.animal_id
+LEFT JOIN
+    vacuna V ON AV.vacuna_id = V.id
+LEFT JOIN
+    revision_veterinaria RV ON A.id = RV.animal_id
+WHERE
+    A.nombre LIKE '%Max%'
+    AND R.nombre LIKE 'Animales Felices';
+"""
+
+"""
+HACER python manage.py makemigrations
+
+python manage.py migrate
+
+HACER FIXTURES
+python manage.py dumpdata --indent 4 > appexamen/fixtures/datos.json
+
+"""
