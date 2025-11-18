@@ -7,7 +7,7 @@ from django.views.defaults import page_not_found
 # Create your views here.
 
 def index(request):
-    return render(request, 'index.html')
+    return render(request, 'index.h AV tml')
 
 
 def ejercicio1(request, nombre, refugio):
@@ -19,9 +19,16 @@ def ejercicio1(request, nombre, refugio):
     return render(request, 'URLs/ejercicio1.html', {'datos':datos })
 
 
-
-
-
+def ejercicio2(request, valor):
+    datos = (Animal.objects
+                .prefetch_related(Prefetch("vacunas__animal_vacunas"))
+                .prefetch_related("revisiones")
+                .filter(Q(vacunas__fabricante=valor) | Q(vacunas__nombre__contains = valor), 
+                        revisiones__puntuacion_salud__gt=80)
+                [:3]
+                .all()
+                )
+    return render(request, 'URLs/ejercicio2.html', {'datos':datos })
 
 
 

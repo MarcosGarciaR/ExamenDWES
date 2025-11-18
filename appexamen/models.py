@@ -26,27 +26,6 @@ class Revision_Veterinaria(models.Model):
     puntuacion_salud = models.IntegerField()
     fecha = models.DateField()
     veterinario = models.CharField(max_length=150)
-    
-
-"""
-SELECT
-    A.*, C.*, AV.*
-FROM
-    animal A
-INNER JOIN
-    centro C ON A.centro_id = C.id
-INNER JOIN
-    refugio R ON C.refugio_id = R.id
-LEFT JOIN
-    animal_vacunas AV ON A.id = AV.animal_id
-LEFT JOIN
-    vacuna V ON AV.vacuna_id = V.id
-LEFT JOIN
-    revision_veterinaria RV ON A.id = RV.animal_id
-WHERE
-    A.nombre LIKE '%Max%'
-    AND R.nombre LIKE 'Animales Felices';
-"""
 
 """
 HACER python manage.py makemigrations
