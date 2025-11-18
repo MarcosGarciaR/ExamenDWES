@@ -1,11 +1,11 @@
 from django.contrib import admin
-from .models import Estudio, Videojuego, Sede, Plataforma, Analisis
+from .models import Refugio, Centro, Vacuna, Animal, Revision_Veterinaria
 
 
 # Register your models here.
 
-admin.site.register(Estudio)
-admin.site.register(Videojuego)
-admin.site.register(Sede)
-admin.site.register(Plataforma)
-admin.site.register(Analisis)
+admin.site.register(Refugio)
+admin.site.register(Centro)
+admin.site.register(Vacuna)
+admin.site.register(Animal)
+admin.site.register(Revision_Veterinaria)

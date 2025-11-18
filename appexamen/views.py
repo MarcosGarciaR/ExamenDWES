@@ -7,39 +7,17 @@ from django.views.defaults import page_not_found
 # Create your views here.
 
 def index(request):
-    return render(request, 'index.html') 
-
-def ejercicio1(request):
-    return render(request, '', { })
-
-"""
-
-def ejercicio2(request):
-    return render(request, '', { :})
+    return render(request, 'index.html')
 
 
+def ejercicio1(request, nombre, refugio):
+    datos = (Animal.objects
+                .select_related('centro__refugio')
+                .filter(nombre__contains=nombre, centro__refugio__nombre=refugio)
+                .all()
+                )
+    return render(request, 'URLs/ejercicio1.html', {'datos':datos })
 
-def ejercicio3(request):
-    return render(request, '', { :})
-
-
-
-
-def ejercicio4(request):
-    return render(request, '', { :})
-
-
-
-
-def ejercicio5(request):
-    return render(request, '', { :})
-
-
-
-def ejercicio6(request):
-    return render(request, '', { :})
-
-"""
 
 
 

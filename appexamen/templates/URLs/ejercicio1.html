@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio1</title>
+</head>
+<body>
+    <h1 style="text-align: center;">ANIMALES</h1> 
+    {% for animal in datos %}
+        <h2>Nombre del centro: {{ animal.centro.nombre}}</h2>
+        <h3>Nombre del animal: {{ animal.nombre }}</h3>
+        <p>Edad: {{ animal.edad_estimada}} años</p>
+    <hr>
+    {% empty %}
+    <h2>No hay animales que cumplan estas características.</h2>
+    {% endfor %}
+</body>
+</html>
