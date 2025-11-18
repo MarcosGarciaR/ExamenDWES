@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5</title>
+</head>
+<body>
+    <h1>Animales con media revisión menor a 50 por ID de centro</h1>
+    <ul>
+    {% for animal in datos %}
+        <li>{{ animal.nombre }} - Centro: {{ animal.centro.nombre }} - Media Salud: {{ animal.media_salud|floatformat:2 }}</li>
+    {% empty %}
+        <li>No se encontraron animales con media de salud baja.</li>
+    {% endfor %}
+    </ul>
+
+</body>
+</html>

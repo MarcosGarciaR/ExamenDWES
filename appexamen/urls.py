@@ -7,4 +7,5 @@ urlpatterns = [
     path('vacunas/<str:valor>', views.ejercicio2 , name='ejercicio2'),
     path('enlaceNone', views.ejercicio3 , name='ejercicio3'),
     path('refugio/<int:annio>', views.ejercicio4 , name='ejercicio4'),
+    path('centros/<int:id_centro>', views.ejercicio5 , name='ejercicio5'),
 ]

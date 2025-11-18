@@ -46,6 +46,18 @@ def ejercicio4(request, annio):
                 )
     return render(request, 'URLs/ejercicio4.html', {'datos':datos})
 
+
+def ejercicio5(request, id_centro):
+    datos = Animal.objects.filter(
+        centro_id=id_centro
+    ).annotate(
+        media_salud=Avg('revisiones__puntuacion_salud')
+    ).filter(media_salud__lt=50)
+    return render(request, 'URLs/ejercicio5.html', {'datos': datos})
+
+
+
+
 #   PÁGINAS DE ERRORES
 def mi_error_404(request, exception=None):
     return render(request, 'Errores/404.html',None,None,404)
