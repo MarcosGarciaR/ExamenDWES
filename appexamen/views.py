@@ -38,6 +38,14 @@ def ejercicio3(request):
     return render(request, 'URLs/ejercicio1.html', {'datos':datos})
 
 
+def ejercicio4(request, annio):
+    datos = (Refugio.objects
+                .filter(centros__animales__revisiones__fecha__year = annio)
+                .distinct().all()
+                .order_by('centros__animales__edad_estimada').reverse()
+                )
+    return render(request, 'URLs/ejercicio4.html', {'datos':datos})
+
 #   PÁGINAS DE ERRORES
 def mi_error_404(request, exception=None):
     return render(request, 'Errores/404.html',None,None,404)
