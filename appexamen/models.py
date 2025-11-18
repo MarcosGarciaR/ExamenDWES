@@ -26,13 +26,3 @@ class Revision_Veterinaria(models.Model):
     puntuacion_salud = models.IntegerField()
     fecha = models.DateField()
     veterinario = models.CharField(max_length=150)
-
-"""
-HACER python manage.py makemigrations
-
-python manage.py migrate
-
-HACER FIXTURES
-python manage.py dumpdata --indent 4 > appexamen/fixtures/datos.json
-
-"""

@@ -143,6 +143,71 @@
     }
 },
 {
+    "model": "admin.logentry",
+    "pk": 12,
+    "fields": {
+        "action_time": "2025-11-18T10:55:59.930",
+        "user": 1,
+        "content_type": 11,
+        "object_id": "2",
+        "object_repr": "Revision_Veterinaria object (2)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 13,
+    "fields": {
+        "action_time": "2025-11-18T11:06:42.518",
+        "user": 1,
+        "content_type": 11,
+        "object_id": "3",
+        "object_repr": "Revision_Veterinaria object (3)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 14,
+    "fields": {
+        "action_time": "2025-11-18T11:06:50.344",
+        "user": 1,
+        "content_type": 11,
+        "object_id": "4",
+        "object_repr": "Revision_Veterinaria object (4)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 15,
+    "fields": {
+        "action_time": "2025-11-18T11:06:58.097",
+        "user": 1,
+        "content_type": 11,
+        "object_id": "5",
+        "object_repr": "Revision_Veterinaria object (5)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 16,
+    "fields": {
+        "action_time": "2025-11-18T11:07:05.094",
+        "user": 1,
+        "content_type": 11,
+        "object_id": "6",
+        "object_repr": "Revision_Veterinaria object (6)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
     "model": "auth.permission",
     "pk": 1,
     "fields": {
@@ -740,6 +805,56 @@
     "fields": {
         "animal": 3,
         "puntuacion_salud": 93,
+        "fecha": "2025-09-18",
+        "veterinario": "MiVeterinario"
+    }
+},
+{
+    "model": "appexamen.revision_veterinaria",
+    "pk": 2,
+    "fields": {
+        "animal": 3,
+        "puntuacion_salud": 12,
+        "fecha": "2025-09-18",
+        "veterinario": "MiVeterinario"
+    }
+},
+{
+    "model": "appexamen.revision_veterinaria",
+    "pk": 3,
+    "fields": {
+        "animal": 1,
+        "puntuacion_salud": 20,
+        "fecha": "2025-09-18",
+        "veterinario": "MiVeterinario"
+    }
+},
+{
+    "model": "appexamen.revision_veterinaria",
+    "pk": 4,
+    "fields": {
+        "animal": 1,
+        "puntuacion_salud": 34,
+        "fecha": "2025-09-18",
+        "veterinario": "MiVeterinario"
+    }
+},
+{
+    "model": "appexamen.revision_veterinaria",
+    "pk": 5,
+    "fields": {
+        "animal": 3,
+        "puntuacion_salud": 23,
+        "fecha": "2025-09-18",
+        "veterinario": "MiVeterinario"
+    }
+},
+{
+    "model": "appexamen.revision_veterinaria",
+    "pk": 6,
+    "fields": {
+        "animal": 3,
+        "puntuacion_salud": 45,
         "fecha": "2025-09-18",
         "veterinario": "MiVeterinario"
     }
